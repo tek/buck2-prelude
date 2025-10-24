@@ -370,7 +370,7 @@ def metadata_unit_args(
     ghc_args.add(cmd_args(packages_info.exposed_package_args, hidden = packages_info.local_packagedb_args))
     ghc_args.add(cmd_args(packages_info.packagedb_args, prepend = "-package-db"))
     ghc_args.add("-fprefer-byte-code")
-    ghc_args.add("-fpackage-db-byte-code")
+    # ghc_args.add("-fpackage-db-byte-code")
 
     buck2_args = unit_buck2_args(actions, arg.unit)
 
@@ -974,7 +974,7 @@ def _compile_oneshot_args(
 
     if enable_th:
         args.add("-fprefer-byte-code")
-        args.add("-fpackage-db-byte-code")
+        # args.add("-fpackage-db-byte-code")
 
     if module.stub_dir != None:
         stubs = outputs[module.stub_dir]
@@ -1369,7 +1369,7 @@ def compile_args(
 
     compile_cmd.add("-fbyte-code-and-object-code")
     compile_cmd.add("-fprefer-byte-code")
-    compile_cmd.add("-fpackage-db-byte-code")
+    # compile_cmd.add("-fpackage-db-byte-code")
     compile_cmd.add("-j")
 
     ####
