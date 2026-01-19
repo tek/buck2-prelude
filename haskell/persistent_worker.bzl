@@ -9,8 +9,6 @@ def _persistent_worker_impl(ctx: AnalysisContext) -> list[Provider]:
 
     cmd = cmd_args(worker_proxy, "--exe", worker)
     cmd.add(ctx.attrs.proxy_args, "--")
-    if ctx.attrs.make:
-        cmd.add("--make")
     cmd.add(ctx.attrs.worker_args)
     return [DefaultInfo(), WorkerInfo(cmd)]
 
